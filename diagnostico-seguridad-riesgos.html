@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Inicial — Modelo Escudo Activo | Habilidad</title>
+<meta name="description" content="Cuestionario de diagnóstico inicial de seguridad y gestión de riesgos, base del Modelo Escudo Activo de Habilidad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1F3A; --blue:#2F5D9F; --green:#00A676; --light:#F5F7FA; --charcoal:#2F343B; --white:#FFFFFF;
+    --font-display:'Montserrat','Helvetica Neue',Arial,sans-serif;
+    --font-body:'Open Sans','Segoe UI',Arial,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:var(--font-body); color:var(--charcoal); line-height:1.6; background:var(--light);}
+  a{color:inherit; text-decoration:none;}
+  h1,h2,h3{font-family:var(--font-display); color:var(--navy); line-height:1.25;}
+  .container{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  header{background:var(--navy); border-bottom:1px solid rgba(255,255,255,.1);}
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 24px; max-width:1180px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-weight:800; color:var(--white); font-size:1rem;}
+  .logo small{display:block; font-family:var(--font-body); font-weight:600; font-size:.52rem; letter-spacing:.18em; color:#B9C3D1;}
+  .back{color:var(--white); font-weight:700; font-size:.88rem;}
+  .back:hover{color:var(--green);}
+
+  .top{background:linear-gradient(155deg, var(--navy) 0%, #123058 60%, var(--blue) 130%); padding:40px 0 32px; color:var(--white);}
+  .top .eyebrow{color:#5FE3B4; font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem;}
+  .top h1{color:var(--white); font-size:clamp(1.4rem,3vw,1.9rem); margin-top:8px;}
+  .top p{color:#D7DEE9; margin-top:10px; font-size:.98rem; max-width:600px;}
+
+  .progress-wrap{padding:20px 0 0;}
+  .progress-bar{display:flex; gap:6px;}
+  .progress-bar .seg{flex:1; height:6px; border-radius:3px; background:rgba(255,255,255,.2);}
+  .progress-bar .seg.done{background:var(--green);}
+  .progress-label{margin-top:8px; font-size:.78rem; color:#C9D3E0;}
+
+  main{padding:36px 0 80px;}
+  .card{background:var(--white); border-radius:12px; padding:32px 28px; box-shadow:0 6px 20px rgba(11,31,58,.06);}
+  .step-eyebrow{color:var(--green); font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:.75rem;}
+  .step-title{font-size:1.3rem; margin:8px 0 4px;}
+  .step-desc{color:#4B5259; font-size:.92rem; margin-bottom:24px;}
+
+  .field{margin-bottom:22px;}
+  .field label{display:block; font-weight:700; font-size:.92rem; color:var(--navy); margin-bottom:8px;}
+  .field .hint{font-weight:400; color:#4B5259; font-size:.82rem; display:block; margin-top:2px;}
+  .field input[type="text"], .field select, .field textarea{width:100%; padding:11px 14px; border:1px solid #D6DCE3; border-radius:6px; font-family:var(--font-body); font-size:.94rem; background:var(--white);}
+  .field textarea{min-height:90px; resize:vertical;}
+
+  .option-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .option{position:relative;}
+  .option input{position:absolute; opacity:0; width:100%; height:100%; cursor:pointer; margin:0;}
+  .option .box{display:flex; align-items:center; gap:10px; border:1.5px solid #D6DCE3; border-radius:8px; padding:12px 14px; font-size:.88rem; font-weight:600; color:var(--charcoal); transition:border-color .15s ease, background .15s ease;}
+  .option input:checked + .box{border-color:var(--green); background:#EAFBF4; color:var(--navy);}
+  .option .dot{width:16px; height:16px; border-radius:50%; border:2px solid #D6DCE3; flex-shrink:0;}
+  .option input:checked + .box .dot{border-color:var(--green); background:var(--green); box-shadow:inset 0 0 0 3px var(--white);}
+  .option.checkbox .dot{border-radius:4px;}
+
+  .nav-buttons{display:flex; justify-content:space-between; margin-top:32px; gap:12px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:6px; font-weight:700; font-size:.9rem; border:none; cursor:pointer;}
+  .btn-primary{background:var(--green); color:var(--white); box-shadow:0 3px 0 #007a54;}
+  .btn-primary:hover{transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--navy); border:1.5px solid #D6DCE3;}
+  .btn-ghost:hover{border-color:var(--navy);}
+  .btn:disabled{opacity:.4; cursor:not-allowed;}
+
+  .summary-section{margin-bottom:28px;}
+  .summary-section h3{font-size:1rem; margin-bottom:10px; color:var(--navy);}
+  .summary-row{display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid #EEF1F4; font-size:.9rem;}
+  .summary-row .q{color:#4B5259;}
+  .summary-row .a{font-weight:700; color:var(--navy); text-align:right;}
+
+  .maturity-box{background:var(--navy); color:var(--white); border-radius:10px; padding:28px; text-align:center; margin-bottom:28px;}
+  .maturity-box .level{font-family:var(--font-display); font-weight:800; font-size:1.5rem; color:var(--green); margin:8px 0;}
+  .maturity-box p{color:#C9D3E0; font-size:.9rem;}
+
+  footer{background:var(--navy); color:#B9C3D1; padding:28px 0; font-size:.82rem; text-align:center;}
+
+  @media (max-width:600px){
+    .option-grid{grid-template-columns:1fr;}
+    .card{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">
+      <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 4 L34 32 H6 Z" fill="#FFFFFF"/>
+        <path d="M22 18 L30 32 H14 Z" fill="#00A676"/>
+      </svg>
+      <span>HABILIDAD<small>CONSULTORES</small></span>
+    </a>
+    <a href="servicio-seguridad-riesgos.html" class="back">← Volver al servicio</a>
+  </div>
+</header>
+
+<div class="top">
+  <div class="container">
+    <p class="eyebrow">Modelo Escudo Activo · Diagnóstico Inicial</p>
+    <h1>Cuestionario de diagnóstico de seguridad y riesgos</h1>
+    <p>Esta primera evaluación toma entre 5 y 8 minutos. Sus respuestas son el punto de partida para aplicar el Modelo Escudo Activo en su organización.</p>
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+      <p class="progress-label" id="progressLabel">Paso 1 de 7</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+    <div class="card" id="formCard"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> Habilidad Consultores — La Serena, Chile</div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ---------- DATA MODEL ----------
+// Each field id is designed to map directly to a future database column
+// e.g. table "diagnosticos_seguridad", column "ident_reglamento_interno"
+
+const steps = [
+  {
+    id: 'general',
+    eyebrow: 'Datos generales',
+    title: 'Cuéntenos sobre su organización',
+    desc: 'Esta información nos permite contextualizar el resto del diagnóstico.',
+    fields: [
+      { id: 'org_nombre', label: 'Nombre de la organización', type: 'text' },
+      { id: 'org_contacto', label: 'Persona de contacto y cargo', type: 'text' },
+      { id: 'org_rubro', label: '¿A qué rubro se dedica?', type: 'select', options: [
+        'Construcción', 'Industria manufacturera', 'Servicios profesionales', 'Comercio y retail',
+        'Salud', 'Educación', 'Sector público', 'Condominios / Inmobiliario', 'Transporte y logística', 'Otro'
+      ]},
+      { id: 'org_tamano', label: '¿Cuántos trabajadores tiene la organización?', type: 'select', options: [
+        '1 a 10', '11 a 50', '51 a 200', 'Más de 200'
+      ]}
+    ]
+  },
+  {
+    id: 'identificacion',
+    eyebrow: 'Paso 1 · Identificación',
+    title: 'Marco normativo interno',
+    desc: 'Base legal mínima exigida a toda organización en Chile.',
+    fields: [
+      { id: 'ident_reglamento', label: '¿Cuenta con Reglamento Interno de Orden, Higiene y Seguridad vigente?', type: 'radio', options: ['Sí', 'No', 'No estoy seguro'] },
+      { id: 'ident_comite', label: '¿Tiene Comité Paritario de Higiene y Seguridad constituido?', type: 'radio', options: ['Sí', 'No', 'No aplica por tamaño'] },
+      { id: 'ident_mutualidad', label: '¿A qué organismo administrador de la Ley 16.744 está afiliado?', type: 'select', options: [
+        'ACHS', 'Mutual de Seguridad', 'IST', 'ISL', 'Otro / No sabe'
+      ]},
+      { id: 'ident_riesgos', label: '¿Cuáles son los principales riesgos de su operación?', type: 'checkbox', options: [
+        'Caídas de altura', 'Cortes o golpes', 'Riesgo eléctrico', 'Exposición química',
+        'Riesgo ergonómico', 'Ruido', 'Riesgo psicosocial', 'Manejo de vehículos o maquinaria', 'Incendio'
+      ]}
+    ]
+  },
+  {
+    id: 'evaluacion',
+    eyebrow: 'Paso 2 · Evaluación',
+    title: 'Historial y exposición actual',
+    desc: 'Nos ayuda a dimensionar la urgencia real de intervención.',
+    fields: [
+      { id: 'eval_accidentes', label: '¿Cuántos accidentes con tiempo perdido tuvo en los últimos 12 meses?', type: 'radio', options: ['0', '1 a 2', '3 a 5', '6 o más'] },
+      { id: 'eval_fiscalizacion', label: '¿Ha tenido fiscalizaciones de la Dirección del Trabajo o SEREMI de Salud en el último año?', type: 'radio', options: ['Sí', 'No'] },
+      { id: 'eval_tasas', label: '¿Conoce sus tasas de accidentabilidad o siniestralidad actuales?', type: 'radio', options: ['Sí, las tengo calculadas', 'No, nunca las he calculado'] }
+    ]
+  },
+  {
+    id: 'control',
+    eyebrow: 'Paso 3 · Control',
+    title: 'Medidas instaladas hoy',
+    desc: 'Lo que ya existe, para no partir de cero.',
+    fields: [
+      { id: 'control_iper', label: '¿Cuenta con una matriz de identificación de peligros y evaluación de riesgos (IPER) actualizada?', type: 'radio', options: ['Sí, actualizada', 'Sí, pero desactualizada', 'No existe'] },
+      { id: 'control_epp', label: '¿Se entrega y usa efectivamente el equipo de protección personal (EPP)?', type: 'radio', options: ['Siempre', 'A veces', 'Rara vez o nunca'] },
+      { id: 'control_procedimientos', label: '¿Existen procedimientos de trabajo seguro documentados para las tareas críticas?', type: 'radio', options: ['Sí, para todas las tareas críticas', 'Solo para algunas', 'No existen'] }
+    ]
+  },
+  {
+    id: 'capacitacion',
+    eyebrow: 'Paso 4 · Capacitación',
+    title: 'Formación de los equipos',
+    desc: 'La cultura de seguridad se construye con hábitos, no solo reglas.',
+    fields: [
+      { id: 'cap_frecuencia', label: '¿Con qué frecuencia se capacita en prevención de riesgos?', type: 'radio', options: ['Mensual', 'Trimestral', 'Anual', 'Rara vez o nunca'] },
+      { id: 'cap_induccion', label: '¿Qué porcentaje del personal ha recibido inducción de seguridad?', type: 'select', options: ['Menos del 25%', '25% a 50%', '51% a 75%', 'Más del 75%'] }
+    ]
+  },
+  {
+    id: 'auditoria',
+    eyebrow: 'Paso 5 · Auditoría Continua',
+    title: 'Seguimiento del sistema',
+    desc: 'La etapa que la mayoría de las organizaciones no tiene instalada.',
+    fields: [
+      { id: 'audit_revision', label: '¿Existe un proceso de revisión o auditoría periódica del sistema de gestión de seguridad?', type: 'radio', options: ['Sí, de forma formal y programada', 'Solo de manera informal', 'No existe'] },
+      { id: 'audit_responsable', label: '¿Quién da seguimiento hoy a la gestión de riesgos?', type: 'radio', options: ['Encargado o depto. dedicado', 'Rol compartido entre varias personas', 'Nadie asignado formalmente'] },
+      { id: 'audit_urgencia', label: '¿Cuál es la principal urgencia que lo motiva a consultar hoy?', type: 'textarea' },
+      { id: 'audit_prioridad', label: '¿Cuál es su prioridad principal?', type: 'select', options: [
+        'Cumplimiento legal urgente (DS 44)', 'Prevenir incidentes', 'Mejorar la cultura de seguridad',
+        'Prepararse para una auditoría o certificación', 'Otro'
+      ]}
+    ]
+  }
+];
+
+// Fields used to compute a simple maturity score (positive answer = more mature)
+const scoreMap = {
+  ident_reglamento: { 'Sí': 2, 'No': 0, 'No estoy seguro': 0 },
+  ident_comite: { 'Sí': 2, 'No': 0, 'No aplica por tamaño': 1 },
+  control_iper: { 'Sí, actualizada': 2, 'Sí, pero desactualizada': 1, 'No existe': 0 },
+  control_epp: { 'Siempre': 2, 'A veces': 1, 'Rara vez o nunca': 0 },
+  control_procedimientos: { 'Sí, para todas las tareas críticas': 2, 'Solo para algunas': 1, 'No existen': 0 },
+  cap_frecuencia: { 'Mensual': 2, 'Trimestral': 2, 'Anual': 1, 'Rara vez o nunca': 0 },
+  audit_revision: { 'Sí, de forma formal y programada': 2, 'Solo de manera informal': 1, 'No existe': 0 },
+  audit_responsable: { 'Encargado o depto. dedicado': 2, 'Rol compartido entre varias personas': 1, 'Nadie asignado formalmente': 0 }
+};
+
+let current = 0;
+const answers = {};
+const totalSteps = steps.length + 1; // +1 for summary
+
+function renderProgress() {
+  const bar = document.getElementById('progressBar');
+  bar.innerHTML = '';
+  for (let i = 0; i < totalSteps; i++) {
+    const seg = document.createElement('div');
+    seg.className = 'seg' + (i <= current ? ' done' : '');
+    bar.appendChild(seg);
+  }
+  document.getElementById('progressLabel').textContent =
+    current < steps.length ? `Paso ${current + 1} de ${totalSteps}` : `Resumen final`;
+}
+
+function fieldHTML(f) {
+  const val = answers[f.id];
+  if (f.type === 'text') {
+    return `<div class="field"><label>${f.label}</label>
+      <input type="text" data-id="${f.id}" value="${val || ''}"></div>`;
+  }
+  if (f.type === 'textarea') {
+    return `<div class="field"><label>${f.label}</label>
+      <textarea data-id="${f.id}">${val || ''}</textarea></div>`;
+  }
+  if (f.type === 'select') {
+    const opts = f.options.map(o => `<option value="${o}" ${val === o ? 'selected' : ''}>${o}</option>`).join('');
+    return `<div class="field"><label>${f.label}</label>
+      <select data-id="${f.id}"><option value="">Seleccione…</option>${opts}</select></div>`;
+  }
+  if (f.type === 'radio') {
+    const opts = f.options.map((o, i) => `
+      <label class="option">
+        <input type="radio" name="${f.id}" value="${o}" ${val === o ? 'checked' : ''}>
+        <span class="box"><span class="dot"></span>${o}</span>
+      </label>`).join('');
+    return `<div class="field"><label>${f.label}</label><div class="option-grid">${opts}</div></div>`;
+  }
+  if (f.type === 'checkbox') {
+    const selected = val || [];
+    const opts = f.options.map(o => `
+      <label class="option checkbox">
+        <input type="checkbox" data-group="${f.id}" value="${o}" ${selected.includes(o) ? 'checked' : ''}>
+        <span class="box"><span class="dot"></span>${o}</span>
+      </label>`).join('');
+    return `<div class="field"><label>${f.label}</label><div class="option-grid">${opts}</div></div>`;
+  }
+  return '';
+}
+
+function renderStep() {
+  renderProgress();
+  const card = document.getElementById('formCard');
+
+  if (current < steps.length) {
+    const step = steps[current];
+    card.innerHTML = `
+      <p class="step-eyebrow">${step.eyebrow}</p>
+      <h2 class="step-title">${step.title}</h2>
+      <p class="step-desc">${step.desc}</p>
+      ${step.fields.map(fieldHTML).join('')}
+      <div class="nav-buttons">
+        <button class="btn btn-ghost" id="btnPrev" ${current === 0 ? 'disabled' : ''}>← Anterior</button>
+        <button class="btn btn-primary" id="btnNext">${current === steps.length - 1 ? 'Ver resumen →' : 'Siguiente →'}</button>
+      </div>
+    `;
+    attachFieldListeners();
+    document.getElementById('btnPrev').onclick = () => { current--; renderStep(); };
+    document.getElementById('btnNext').onclick = () => { current++; renderStep(); saveDraft(); };
+  } else {
+    renderSummary();
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function attachFieldListeners() {
+  document.querySelectorAll('input[type="text"], textarea, select').forEach(el => {
+    el.addEventListener('input', () => { answers[el.dataset.id] = el.value; });
+  });
+  document.querySelectorAll('input[type="radio"]').forEach(el => {
+    el.addEventListener('change', () => { answers[el.name] = el.value; });
+  });
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => {
+    el.addEventListener('change', () => {
+      const group = el.dataset.group;
+      if (!answers[group]) answers[group] = [];
+      if (el.checked) {
+        if (!answers[group].includes(el.value)) answers[group].push(el.value);
+      } else {
+        answers[group] = answers[group].filter(v => v !== el.value);
+      }
+    });
+  });
+}
+
+function computeMaturity() {
+  let total = 0, max = 0;
+  Object.keys(scoreMap).forEach(id => {
+    max += 2;
+    const val = answers[id];
+    if (val && scoreMap[id][val] !== undefined) total += scoreMap[id][val];
+  });
+  const pct = max > 0 ? Math.round((total / max) * 100) : 0;
+  let level = 'Reactivo';
+  if (pct >= 75) level = 'Consolidado';
+  else if (pct >= 40) level = 'En desarrollo';
+  return { pct, level };
+}
+
+function allFields() {
+  return steps.flatMap(s => s.fields);
+}
+
+function renderSummary() {
+  const card = document.getElementById('formCard');
+  const { pct, level } = computeMaturity();
+
+  const rows = allFields().map(f => {
+    let val = answers[f.id];
+    if (Array.isArray(val)) val = val.length ? val.join(', ') : '—';
+    if (!val) val = '—';
+    return `<div class="summary-row"><span class="q">${f.label}</span><span class="a">${val}</span></div>`;
+  }).join('');
+
+  card.innerHTML = `
+    <p class="step-eyebrow">Resumen del diagnóstico</p>
+    <h2 class="step-title">Nivel de madurez Escudo Activo</h2>
+
+    <div class="maturity-box">
+      <p>Nivel actual estimado</p>
+      <div class="level">${level} (${pct}%)</div>
+      <p>Esto es una primera aproximación. El diagnóstico completo del Modelo Escudo Activo se realiza en terreno junto a su equipo.</p>
+    </div>
+
+    <div class="summary-section">
+      <h3>Respuestas registradas</h3>
+      ${rows}
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn btn-ghost" id="btnBack">← Volver a editar</button>
+      <button class="btn btn-primary" id="btnSend">Enviar a Habilidad →</button>
+    </div>
+    <div class="nav-buttons" style="margin-top:12px;">
+      <button class="btn btn-ghost" id="btnDownload" style="width:100%; justify-content:center;">Descargar respuestas (JSON)</button>
+    </div>
+  `;
+
+  document.getElementById('btnBack').onclick = () => { current = steps.length - 1; renderStep(); };
+  document.getElementById('btnSend').onclick = sendByEmail;
+  document.getElementById('btnDownload').onclick = downloadJSON;
+}
+
+function saveDraft() {
+  try { localStorage.setItem('habilidad_diagnostico_seguridad', JSON.stringify(answers)); } catch (e) {}
+}
+
+function loadDraft() {
+  try {
+    const saved = localStorage.getItem('habilidad_diagnostico_seguridad');
+    if (saved) Object.assign(answers, JSON.parse(saved));
+  } catch (e) {}
+}
+
+function sendByEmail() {
+  const { pct, level } = computeMaturity();
+  let body = `Diagnóstico Modelo Escudo Activo%0D%0ANivel de madurez: ${level} (${pct}%25)%0D%0A%0D%0A`;
+  allFields().forEach(f => {
+    let val = answers[f.id];
+    if (Array.isArray(val)) val = val.join(', ');
+    body += `${encodeURIComponent(f.label)}: ${encodeURIComponent(val || '—')}%0D%0A`;
+  });
+  window.location.href = `mailto:contacto@habilidad.cl?subject=${encodeURIComponent('Diagnóstico de Seguridad - ' + (answers.org_nombre || 'Cliente'))}&body=${body}`;
+}
+
+function downloadJSON() {
+  const data = { fecha: new Date().toISOString(), respuestas: answers, madurez: computeMaturity() };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `diagnostico-seguridad-${(answers.org_nombre || 'cliente').replace(/\s+/g, '-').toLowerCase()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+loadDraft();
+renderStep();
+</script>
+</body>
+</html>
