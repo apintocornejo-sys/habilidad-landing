@@ -64,7 +64,8 @@
   .section-head{max-width:640px; margin-bottom:48px;}
   .section-head h2{font-size:clamp(1.6rem,2.6vw,2.2rem); margin-top:10px;}
   .grid-5{display:grid; grid-template-columns:repeat(5,1fr); gap:24px;}
-  .card{background:var(--light); border-radius:10px; padding:28px 22px; border-top:3px solid var(--green);}
+  .card{background:var(--light); border-radius:10px; padding:28px 22px; border-top:3px solid var(--green); transition:transform .15s ease, box-shadow .15s ease;}
+  .card:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(11,31,58,.1);}
   .card .icon{width:40px; height:40px; margin-bottom:16px;}
   .card h3{font-size:1.02rem; margin-bottom:10px;}
   .card p{font-size:.9rem; color:#4B5259;}
@@ -189,31 +190,31 @@
       <h2>Un marco, adaptable a cualquier sector</h2>
     </div>
     <div class="grid-5">
-      <div class="card">
+      <a href="servicio-consultoria-estrategica.html" class="card" style="display:block;">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00A676" stroke-width="1.8"><path d="M3 12l4-8h10l4 8-4 8H7l-4-8z"/></svg>
         <h3>Consultoría Estratégica</h3>
         <p>Diagnóstico y hoja de ruta a la medida de tu organización.</p>
-      </div>
-      <div class="card">
+      </a>
+      <a href="servicio-seguridad-riesgos.html" class="card" style="display:block;">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00A676" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg>
         <h3>Seguridad y Riesgos</h3>
         <p>Sistemas de prevención y cumplimiento normativo integral.</p>
-      </div>
-      <div class="card">
+      </a>
+      <a href="servicio-desarrollo-organizacional.html" class="card" style="display:block;">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00A676" stroke-width="1.8"><path d="M9 3h6v4H9zM6 7h12v14H6z"/></svg>
         <h3>Desarrollo Organizacional</h3>
         <p>Equipos, procesos y cultura orientados a resultados.</p>
-      </div>
-      <div class="card">
+      </a>
+      <a href="servicio-seguimiento-proyectos.html" class="card" style="display:block;">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00A676" stroke-width="1.8"><path d="M4 19V9M12 19V5M20 19v-7"/></svg>
         <h3>Seguimiento de Proyectos</h3>
         <p>Trazabilidad de avances, hitos y responsables en tiempo real.</p>
-      </div>
-      <div class="card">
+      </a>
+      <a href="servicio-control-cumplimiento.html" class="card" style="display:block;">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00A676" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg>
         <h3>Control y Cumplimiento</h3>
         <p>Auditoría continua para asegurar cada estándar acordado.</p>
-      </div>
+      </a>
     </div>
   </div>
 </section>

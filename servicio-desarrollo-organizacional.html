@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desarrollo Organizacional: 7-S de McKinsey, Kotter y ADKAR en un solo modelo — Habilidad</title>
+<meta name="description" content="El modelo de Desarrollo Organizacional de Habilidad combina el Modelo 7-S de McKinsey, los 8 Pasos de Kotter y ADKAR de Prosci.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1F3A; --blue:#2F5D9F; --green:#00A676; --light:#F5F7FA; --charcoal:#2F343B; --white:#FFFFFF;
+    --font-display:'Montserrat','Helvetica Neue',Arial,sans-serif;
+    --font-body:'Open Sans','Segoe UI',Arial,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:var(--font-body); color:var(--charcoal); line-height:1.7; background:var(--white);}
+  a{color:inherit; text-decoration:none;}
+  h1,h2,h3{font-family:var(--font-display); color:var(--navy); line-height:1.25;}
+  .container{max-width:780px; margin:0 auto; padding:0 24px;}
+  .eyebrow{color:var(--green); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.8rem;}
+  header{position:sticky; top:0; z-index:50; background:var(--navy); border-bottom:1px solid rgba(255,255,255,.1);}
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 24px; max-width:1180px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-weight:800; color:var(--white); font-size:1rem;}
+  .logo small{display:block; font-family:var(--font-body); font-weight:600; font-size:.52rem; letter-spacing:.18em; color:#B9C3D1;}
+  .back{color:var(--white); font-weight:700; font-size:.88rem;}
+  .back:hover{color:var(--green);}
+  .hero-banner{position:relative; background:linear-gradient(155deg, var(--navy) 0%, #123058 60%, var(--blue) 130%); padding:56px 0 64px;}
+  .hero-banner .content{max-width:780px; margin:0 auto; padding:0 24px;}
+  .hero-banner .eyebrow{color:#5FE3B4;}
+  .hero-banner h1{color:var(--white); font-size:clamp(1.7rem,3.6vw,2.5rem); margin-top:10px;}
+  .hero-banner p.lead{color:#D7DEE9; font-size:1.1rem; margin-top:16px; max-width:620px;}
+  article{padding:56px 0 80px;}
+  article p{margin-bottom:20px; font-size:1.05rem;}
+  article h2{font-size:1.4rem; margin:44px 0 16px;}
+  article ul{margin:0 0 20px 22px;}
+  article li{margin-bottom:10px; font-size:1.02rem;}
+  .model-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:36px 0;}
+  .model-card{background:var(--light); border-radius:10px; padding:24px 20px; border-top:4px solid var(--green);}
+  .model-card .source{font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--green); margin-bottom:10px;}
+  .model-card h3{font-size:1.05rem; margin-bottom:10px;}
+  .model-card p{font-size:.9rem; color:#4B5259; margin:0;}
+  .cycle-mini{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:32px 0;}
+  .cycle-mini .step{background:var(--navy); color:var(--white); border-radius:8px; padding:18px 14px; text-align:center;}
+  .cycle-mini .step .n{font-family:var(--font-display); font-weight:800; color:var(--green); font-size:1.1rem; margin-bottom:6px;}
+  .cycle-mini .step h3{color:var(--white); font-size:.9rem; margin-bottom:4px;}
+  .cycle-mini .step p{color:#C9D3E0; font-size:.78rem; margin:0;}
+  .callout{background:var(--light); border-left:4px solid var(--green); padding:20px 24px; border-radius:6px; margin:32px 0; font-size:.98rem;}
+  .cta-box{background:var(--navy); color:var(--white); border-radius:10px; padding:36px 32px; margin-top:48px; text-align:center;}
+  .cta-box h3{color:var(--white); margin-bottom:12px;}
+  .cta-box p{color:#C9D3E0; margin-bottom:20px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--green); color:var(--white); padding:12px 24px; border-radius:6px; font-weight:700; font-size:.9rem;}
+  footer{background:var(--navy); color:#B9C3D1; padding:32px 0; font-size:.85rem; text-align:center;}
+  @media (max-width:760px){ .model-grid{grid-template-columns:1fr;} .cycle-mini{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">
+      <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 4 L34 32 H6 Z" fill="#FFFFFF"/>
+        <path d="M22 18 L30 32 H14 Z" fill="#00A676"/>
+      </svg>
+      <span>HABILIDAD<small>CONSULTORES</small></span>
+    </a>
+    <a href="index.html#servicios" class="back">← Volver a servicios</a>
+  </div>
+</header>
+
+<div class="hero-banner">
+  <div class="content">
+    <p class="eyebrow">Desarrollo Organizacional</p>
+    <h1>Un modelo que une los tres marcos de cambio organizacional más usados del mundo</h1>
+    <p class="lead">Cambiar un organigrama es fácil. Lograr que la organización realmente trabaje distinto es otra cosa — por eso combinamos tres marcos que abordan la estructura, el liderazgo del cambio y la adopción individual.</p>
+  </div>
+</div>
+
+<article>
+  <div class="container">
+    <p>La mayoría de los procesos de cambio organizacional fallan no por falta de un buen plan, sino porque se enfocan solo en un nivel — la estructura, o el discurso de liderazgo, o las personas — y descuidan los otros dos. En Habilidad integramos tres marcos que, juntos, cubren los tres niveles a la vez.</p>
+
+    <h2>Tres marcos, un solo modelo</h2>
+    <div class="model-grid">
+      <div class="model-card">
+        <div class="source">Inspirado en el Modelo 7-S de McKinsey</div>
+        <h3>Alineación estructural</h3>
+        <p>Estrategia, estructura, sistemas, valores compartidos, habilidades, estilo y personal — revisamos que los siete elementos avancen coordinados, no cada uno por su lado.</p>
+      </div>
+      <div class="model-card">
+        <div class="source">Inspirado en los 8 Pasos de Kotter</div>
+        <h3>Liderazgo del cambio</h3>
+        <p>El modelo de gestión del cambio más enseñado en escuelas de negocio del mundo — desde crear urgencia real hasta anclar el cambio en la cultura, no solo anunciarlo.</p>
+      </div>
+      <div class="model-card">
+        <div class="source">Inspirado en ADKAR (Prosci)</div>
+        <h3>Adopción individual</h3>
+        <p>El cambio organizacional solo ocurre si cada persona pasa por conciencia, deseo, conocimiento, habilidad y refuerzo — no basta con que la gerencia lo apruebe.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      La razón más común por la que un cambio "no prende" no es resistencia irracional de las personas — es que se saltó alguna de estas etapas. Kotter lo demuestra a nivel organizacional; ADKAR, a nivel de cada individuo dentro de ella.
+    </div>
+
+    <h2>Cómo se traduce al Ciclo de Control Habilidad</h2>
+    <div class="cycle-mini">
+      <div class="step"><div class="n">01</div><h3>Diagnóstico</h3><p>Radiografía de los 7 elementos del Modelo 7-S.</p></div>
+      <div class="step"><div class="n">02</div><h3>Diseño</h3><p>Plan de cambio con los primeros pasos de Kotter.</p></div>
+      <div class="step"><div class="n">03</div><h3>Implementación</h3><p>Acompañamiento individual según el modelo ADKAR.</p></div>
+      <div class="step"><div class="n">04</div><h3>Control</h3><p>Verificamos que el cambio quede anclado, no solo anunciado.</p></div>
+    </div>
+
+    <h2>El error que más veces vemos</h2>
+    <p>Rediseñar el organigrama sin trabajar la cultura ni acompañar a las personas produce un cambio de papel, no un cambio real. En un par de trimestres, la organización vuelve a operar como antes — solo que con títulos distintos.</p>
+
+    <div class="cta-box">
+      <h3>¿Tu organización cambió el organigrama pero no la forma de trabajar?</h3>
+      <p>Diseñamos e implementamos procesos de cambio con seguimiento real a nivel estructural, de liderazgo y de cada persona.</p>
+      <a href="index.html#contacto" class="btn">Conversemos →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="container">© <span id="year"></span> Habilidad Consultores — La Serena, Chile</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
