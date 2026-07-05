@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Ciclo de Control Habilidad: la metodología para el seguimiento de proyectos — Habilidad</title>
+<meta name="description" content="Cómo el Ciclo de Control Habilidad transforma el seguimiento y control de proyectos en cualquier sector.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1F3A; --blue:#2F5D9F; --green:#00A676; --light:#F5F7FA; --charcoal:#2F343B; --white:#FFFFFF;
+    --font-display:'Montserrat','Helvetica Neue',Arial,sans-serif;
+    --font-body:'Open Sans','Segoe UI',Arial,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:var(--font-body); color:var(--charcoal); line-height:1.7; background:var(--white);}
+  a{color:inherit; text-decoration:none;}
+  h1,h2,h3{font-family:var(--font-display); color:var(--navy); line-height:1.25;}
+  .container{max-width:760px; margin:0 auto; padding:0 24px;}
+  .eyebrow{color:var(--green); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.8rem;}
+
+  header{position:sticky; top:0; z-index:50; background:var(--navy); border-bottom:1px solid rgba(255,255,255,.1);}
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 24px; max-width:1180px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:8px; font-family:var(--font-display); font-weight:800; color:var(--white); font-size:1rem;}
+  .logo small{display:block; font-family:var(--font-body); font-weight:600; font-size:.52rem; letter-spacing:.18em; color:#B9C3D1;}
+  .back{color:var(--white); font-weight:700; font-size:.88rem; display:flex; align-items:center; gap:6px;}
+  .back:hover{color:var(--green);}
+
+  .hero-banner{position:relative; height:340px; background:linear-gradient(155deg, var(--navy) 0%, #123058 60%, var(--blue) 130%); display:flex; align-items:flex-end; overflow:hidden;}
+  .hero-banner img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.55;}
+  .hero-banner .content{position:relative; z-index:2; padding:40px 24px; max-width:760px; margin:0 auto; width:100%;}
+  .hero-banner .content .eyebrow{color:#5FE3B4;}
+  .hero-banner h1{color:var(--white); font-size:clamp(1.6rem,3.4vw,2.3rem); margin-top:10px;}
+  .meta{color:#C9D3E0; font-size:.85rem; margin-top:12px;}
+
+  article{padding:56px 0 80px;}
+  article p{margin-bottom:20px; font-size:1.05rem;}
+  article h2{font-size:1.4rem; margin:40px 0 16px;}
+  article ul{margin:0 0 20px 22px;}
+  article li{margin-bottom:10px; font-size:1.02rem;}
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:32px 0;}
+  .step{background:var(--light); border-radius:8px; padding:20px 16px; border-top:3px solid var(--green);}
+  .step .num{font-family:var(--font-display); font-weight:800; color:var(--green); font-size:1.3rem; margin-bottom:8px;}
+  .step h3{font-size:.95rem; margin-bottom:6px;}
+  .step p{font-size:.85rem; color:#4B5259; margin:0;}
+  .callout{background:var(--light); border-left:4px solid var(--green); padding:20px 24px; border-radius:6px; margin:32px 0; font-size:.98rem;}
+  .cta-box{background:var(--navy); color:var(--white); border-radius:10px; padding:36px 32px; margin-top:48px; text-align:center;}
+  .cta-box h3{color:var(--white); margin-bottom:12px;}
+  .cta-box p{color:#C9D3E0; margin-bottom:20px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--green); color:var(--white); padding:12px 24px; border-radius:6px; font-weight:700; font-size:.9rem;}
+
+  footer{background:var(--navy); color:#B9C3D1; padding:32px 0; font-size:.85rem; text-align:center;}
+
+  @media (max-width:700px){
+    .steps{grid-template-columns:1fr 1fr;}
+    .hero-banner{height:260px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">
+      <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 4 L34 32 H6 Z" fill="#FFFFFF"/>
+        <path d="M22 18 L30 32 H14 Z" fill="#00A676"/>
+      </svg>
+      <span>HABILIDAD<small>CONSULTORES</small></span>
+    </a>
+    <a href="index.html#blog" class="back">← Volver al blog</a>
+  </div>
+</header>
+
+<div class="hero-banner">
+  <!-- REEMPLAZA el src de abajo por tu foto elegida de banco libre -->
+  <img src="images/blog-proyectos.jpg" alt="Seguimiento y control de proyectos" onerror="this.style.display='none'">
+  <div class="content">
+    <p class="eyebrow">Seguimiento y control de proyectos</p>
+    <h1>El Ciclo de Control Habilidad: la metodología que transforma el seguimiento de proyectos</h1>
+    <p class="meta">Habilidad Consultores · Lectura de 3 minutos</p>
+  </div>
+</div>
+
+<article>
+  <div class="container">
+    <p>La mayoría de los proyectos no fracasan por un mal diagnóstico inicial — fracasan porque nadie los sigue de cerca después del kickoff. El informe se entrega, la reunión se hace, y luego el seguimiento se diluye entre otras prioridades. En Habilidad resolvemos esto con una metodología propia: el <strong>Ciclo de Control Habilidad</strong>, un marco de cuatro etapas que se repite en cada proyecto, sin importar el sector.</p>
+
+    <h2>Las cuatro etapas</h2>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Diagnóstico</h3><p>Levantamos brechas reales, no supuestos ni plantillas genéricas.</p></div>
+      <div class="step"><div class="num">02</div><h3>Diseño</h3><p>Plan de acción medible, con hitos y responsables claros por cada tarea.</p></div>
+      <div class="step"><div class="num">03</div><h3>Implementación</h3><p>Ejecutamos junto al equipo del cliente, no en su reemplazo.</p></div>
+      <div class="step"><div class="num">04</div><h3>Control</h3><p>Seguimiento activo y ajuste sobre la marcha — no una revisión al final.</p></div>
+    </div>
+
+    <h2>¿En qué se diferencia de una consultoría tradicional?</h2>
+    <p>La mayoría de las asesorías terminan en la etapa de "Diseño": entregan un plan, una recomendación, un informe — y ahí se acaba el acompañamiento. La etapa de <strong>Control</strong> es la que realmente distingue esta metodología: no cerramos el proyecto cuando se entrega el plan, sino cuando confirmamos que las medidas se implementaron y están dando resultado.</p>
+
+    <div class="callout">
+      El ciclo no es lineal ni de una sola pasada — se retroalimenta. Cada etapa de Control genera nuevos ajustes que vuelven a pasar por Diagnóstico, manteniendo el proyecto vivo en vez de archivado.
+    </div>
+
+    <h2>Por qué funciona en cualquier sector</h2>
+    <p>Ya sea un proyecto de cumplimiento normativo, un plan de desarrollo organizacional, o el seguimiento de un condominio, la estructura de las cuatro etapas no cambia — lo que cambia es el contenido de cada una. Esto permite que un mismo equipo de Habilidad mantenga el mismo estándar de rigor sin importar la industria del cliente.</p>
+
+    <div class="cta-box">
+      <h3>¿Tu último proyecto quedó archivado después del informe final?</h3>
+      <p>Aplicamos el Ciclo de Control Habilidad a tu próximo proyecto, con seguimiento real hasta el resultado.</p>
+      <a href="index.html#contacto" class="btn">Conversemos →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="container">© <span id="year"></span> Habilidad Consultores — La Serena, Chile</div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
