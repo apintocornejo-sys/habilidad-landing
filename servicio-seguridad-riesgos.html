@@ -52,7 +52,10 @@
   .cta-box{background:var(--navy); color:var(--white); border-radius:10px; padding:36px 32px; margin-top:48px; text-align:center;}
   .cta-box h3{color:var(--white); margin-bottom:12px;}
   .cta-box p{color:#C9D3E0; margin-bottom:20px;}
-  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--green); color:var(--white); padding:12px 24px; border-radius:6px; font-weight:700; font-size:.9rem;}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--green); color:var(--white); padding:12px 24px; border-radius:6px; font-weight:700; font-size:.9rem; box-shadow:0 3px 0 #007a54; transition:transform .15s ease, box-shadow .15s ease;}
+  .btn:hover{transform:translateY(-2px); box-shadow:0 5px 0 #007a54;}
+  .btn-outline{background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,.5); box-shadow:none;}
+  .btn-outline:hover{background:rgba(255,255,255,.12); border-color:var(--white); transform:translateY(-2px); box-shadow:none;}
   footer{background:var(--navy); color:#B9C3D1; padding:32px 0; font-size:.85rem; text-align:center;}
   @media (max-width:760px){ .model-grid{grid-template-columns:1fr;} .cycle-mini{grid-template-columns:1fr 1fr;} }
 </style>
@@ -124,8 +127,13 @@
     <div class="cta-box">
       <h3>¿Tu prevención de riesgos es solo un documento que se actualiza una vez al año?</h3>
       <p>Implementamos un sistema de gestión de seguridad real, con seguimiento activo, no solo cumplimiento en papel.</p>
-      <a href="index.html#contacto" class="btn">Conversemos →</a>
-      <p style="margin-top:16px;"><a href="diagnostico-seguridad-riesgos.html" style="color:#5FE3B4; font-weight:700; font-size:.88rem;">O inicie aquí el diagnóstico inicial →</a></p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:8px;">
+        <a href="index.html#contacto" class="btn">Conversemos →</a>
+        <a href="diagnostico-seguridad-riesgos.html" class="btn btn-outline" style="padding:16px 30px; font-size:1rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3.5h6v2.5H9z"/><path d="M9 12l2 2 4-4"/></svg>
+          Iniciar diagnóstico inicial →
+        </a>
+      </div>
     </div>
   </div>
 </article>
